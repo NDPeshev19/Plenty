@@ -51,9 +51,10 @@ int main()
 
 	LinkedList<Demo> ll;
 
+	// All three ways work
 	ll.addAtBack(Demo(1, 2));
-	ll.addAtBack(Demo(3, 4));
-	ll.addAtBack(Demo(5, 6));
+	ll.addAtBack({3, 4});
+	ll.addAtBack(Demo{5, 6});
 
 	std::cout << ll << std::endl;
 
