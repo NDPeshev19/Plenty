@@ -7,4 +7,8 @@
     <ClInclude Include="include\backend\Node.h" />
     <ClInclude Include="include\backend\LinkedList.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="src\backend\LinkedList.tpp" />
+    <None Include="src\backend\Node.tpp" />
+  </ItemGroup>
 </Project>

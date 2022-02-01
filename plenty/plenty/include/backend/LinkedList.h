@@ -24,7 +24,7 @@ public:
 	int size() const;
 
 	template <typename TT>
-	friend std::ostream& operator<< (std::ostream& out, const LinkedList<TT>& list)
+	friend std::ostream& operator<<(std::ostream& out, const LinkedList<TT>& list)
 	{
 		if (list.size() == 0)
 		{
@@ -49,4 +49,4 @@ private:
 	Node<T>* head;
 };
 
-#include "src/backend/LinkedList.cpp"
+#include "src/backend/LinkedList.tpp"

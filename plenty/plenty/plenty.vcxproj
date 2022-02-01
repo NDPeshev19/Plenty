@@ -155,6 +155,10 @@
     <ClInclude Include="include\backend\LinkedList.h" />
     <ClInclude Include="include\backend\Node.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="src\backend\LinkedList.tpp" />
+    <None Include="src\backend\Node.tpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
