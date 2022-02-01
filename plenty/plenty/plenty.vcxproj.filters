@@ -3,4 +3,8 @@
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\backend\Node.h" />
+    <ClInclude Include="include\backend\LinkedList.h" />
+  </ItemGroup>
 </Project>
