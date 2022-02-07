@@ -29,6 +29,12 @@ LinkedList<T>::~LinkedList()
 }
 
 template <typename T>
+Node<T>* LinkedList<T>::getHead() const
+{
+	return head;
+}
+
+template <typename T>
 Node<T>* LinkedList<T>::getTail() const
 {
 	Node<T>* tail = head;
@@ -157,13 +163,29 @@ void LinkedList<T>::removeNode(T node)
 }
 
 template <typename T>
+Node<T>* LinkedList<T>::findNode(T obj) const
+{
+	Node<T>* curr = head;
+
+	while (curr != nullptr)
+	{
+		if (curr->data == obj)
+			return curr;
+
+		curr = curr->next;
+	}
+
+	return nullptr;
+}
+
+template <typename T>
 void LinkedList<T>::printList() const
 {
 	Node<T>* temp = head;
 
 	while (temp != nullptr)
 	{
-		std::cout << temp->data << ' ';
+		std::cout << temp->data;// << ' ';
 		temp = temp->next;
 	}
 }

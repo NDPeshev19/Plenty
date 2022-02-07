@@ -2,10 +2,12 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\backend\HistoryEventManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\backend\Node.h" />
     <ClInclude Include="include\backend\LinkedList.h" />
+    <ClInclude Include="include\backend\HistoryEventManager.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\backend\LinkedList.tpp" />

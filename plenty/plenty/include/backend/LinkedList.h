@@ -11,6 +11,7 @@ public:
 	LinkedList(T node);
 	~LinkedList();
 
+	Node<T>* getHead() const;
 	Node<T>* getTail() const;
 
 	void addAtFront(T node);
@@ -19,6 +20,8 @@ public:
 	void removeAtFront();
 	void removeAtBack();
 	void removeNode(T node);
+
+	Node<T>* findNode(T obj) const;
 
 	void printList() const;
 	int size() const;
