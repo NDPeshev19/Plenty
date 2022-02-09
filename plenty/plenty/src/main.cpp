@@ -8,12 +8,14 @@
 int main()
 {
 	HistoryEventManager HEM;
+	auto HE = HistoryEvent("Title1", "Desc1", "03.10.2021");
 
-	HEM.addEvent(HistoryEvent("Title1", "Desc1", "03.10.2021"));
+	HEM.addEvent(HE);
 	HEM.addEvent(HistoryEvent("Title2", "Desc2", "03.10.2021"));
 	HEM.addEvent(HistoryEvent("Title3", "Desc3", "03.10.2021"));
 	HEM.addEvent(HistoryEvent("Title4", "Desc4", "03.10.2021"));
 	HEM.addEvent(HistoryEvent("Title5", "Desc5", "03.10.2021"));
+	
 
 	// HEM.displayAllEvents();
 
@@ -26,10 +28,23 @@ int main()
 
 	// std::cout << "________________________________________" << std::endl;
 
-	LinkedList<HistoryEvent> list;
-	HEM.getAll(list);
+	LinkedList<HistoryEvent> list = HEM.getAll();
 
 	SaveManager::save("test", list);
+	
+
+	// // std::cout << HEM.getAll().getHead()->getData().getId();
+
+	
+	// auto all = HEM.getAll();
+
+	// auto head = all.getHead();
+
+	// auto data = head->getData();
+
+	// auto id = data.getId();
+
+	// std::cout << id;
 
 	std::cin.get();
 }

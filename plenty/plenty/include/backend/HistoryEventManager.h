@@ -8,6 +8,11 @@
 class HistoryEvent
 {
 public:
+	static inline int idCount = 1;
+private:
+	int id;
+
+public:
 	std::string title;
 	std::string description;
 	std::string date;
@@ -15,6 +20,8 @@ public:
 	HistoryEvent();
 	HistoryEvent(std::string title_t, std::string description_t, std::string date_t);
 	HistoryEvent(const HistoryEvent& HE);
+
+	int getId();
 
 	friend std::ostream& operator<<(std::ostream& out, const HistoryEvent& HE)
 	{
@@ -39,35 +46,7 @@ public:
 class HistoryEventManager
 {
 private:
-	struct _HistoryEvent
-	{
-		int id;
-		HistoryEvent event;
-
-		friend std::ostream& operator<<(std::ostream& out, const _HistoryEvent& HE)
-		{
-			std::string spacer(15, '-');
-
-			out << spacer << '\n';
-			out << "Title: " << HE.event.title << '\n';
-			out << "Description: " << HE.event.description << '\n';
-			out << "Date: " << HE.event.date << '\n';
-			out << spacer << '\n';
-
-			return out;
-		}
-		friend bool operator==(const _HistoryEvent& lhs, const _HistoryEvent& rhs)
-		{
-			return lhs.event.title == rhs.event.title &&
-				lhs.event.description == rhs.event.description &&
-				lhs.event.date == rhs.event.date;
-		}
-	};
-
-private:
-	int id = 1;
-
-	LinkedList<_HistoryEvent> events;
+	LinkedList<HistoryEvent> events;
 
 private:
 	int findId(HistoryEvent HE) const;
@@ -79,7 +58,7 @@ public:
 	HistoryEvent getEventById(int id);
 
 	void deleteEvent(HistoryEvent historyEvent);
-	void displayAllEvents();
+	void displayAllEvents() const;
 
-	void getAll(LinkedList<HistoryEvent>&) const;
+	LinkedList<HistoryEvent> getAll() const;
 };

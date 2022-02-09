@@ -3,7 +3,8 @@
 HistoryEvent::HistoryEvent()
 	: title("undefined"),
 	description("undefined"),
-	date("undefined")
+	date("undefined"),
+	id(0)
 {
 
 }
@@ -11,7 +12,8 @@ HistoryEvent::HistoryEvent()
 HistoryEvent::HistoryEvent(std::string title_t, std::string description_t, std::string date_t)
 	: title(title_t),
 	description(description_t),
-	date(date_t)
+	date(date_t),
+	id(idCount++)
 {
 
 }
@@ -20,21 +22,28 @@ HistoryEvent::HistoryEvent(std::string title_t, std::string description_t, std::
 HistoryEvent::HistoryEvent(const HistoryEvent& HE)
 	: title(HE.title),
 	description(HE.description),
-	date(HE.date)
+	date(HE.date),
+	id(HE.id)
 {
 
 }
 
+int HistoryEvent::getId()
+{
+	return id;
+}
+
+
 int HistoryEventManager::findId(HistoryEvent historyEvent) const
 {
-	auto hEvent = events.findNode({ 0, historyEvent });
+	auto hEvent = events.findNode(historyEvent);
 
-	return hEvent ? hEvent->getData().id : -1;
+	return hEvent ? hEvent->getData().getId() : -1;
 }
 
 void HistoryEventManager::addEvent(HistoryEvent historyEvent)
 {
-	events.addAtBack({id++, historyEvent });
+	events.addAtBack(historyEvent);
 }
 
 HistoryEvent HistoryEventManager::getEventById(int id)
@@ -43,9 +52,9 @@ HistoryEvent HistoryEventManager::getEventById(int id)
 
 	while (head != nullptr)
 	{
-		if (head->getData().id == id)
+		if (head->getData().getId() == id)
 		{
-			return head->getData().event;
+			return head->getData();
 		}
 
 		head = head->getNext();
@@ -56,26 +65,18 @@ HistoryEvent HistoryEventManager::getEventById(int id)
 
 void HistoryEventManager::deleteEvent(HistoryEvent historyEvent)
 {
-	int id = findId(historyEvent);
-	
-	if (id)
+	if (findId(historyEvent))
 	{
-		events.removeNode({ id, historyEvent });
+		events.removeNode(historyEvent);
 	}
 }
 
-void HistoryEventManager::displayAllEvents()
+void HistoryEventManager::displayAllEvents() const
 {
 	events.printList();
 }
 
-void HistoryEventManager::getAll(LinkedList<HistoryEvent>& res) const
+LinkedList<HistoryEvent> HistoryEventManager::getAll() const
 {
-	auto head = events.getHead();
-	while (head != nullptr)
-	{
-		res.addAtBack(HistoryEvent(head->getData().event));
-
-		head = head->getNext();
-	}
+	return events;
 }
