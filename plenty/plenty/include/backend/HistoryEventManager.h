@@ -80,4 +80,6 @@ public:
 
 	void deleteEvent(HistoryEvent historyEvent);
 	void displayAllEvents();
+
+	void getAll(LinkedList<HistoryEvent>&) const;
 };

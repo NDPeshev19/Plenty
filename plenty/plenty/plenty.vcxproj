@@ -149,6 +149,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="include\backend\SaveManager.h" />
     <ClCompile Include="src\backend\HistoryEventManager.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
@@ -156,6 +157,7 @@
     <ClInclude Include="include\backend\HistoryEventManager.h" />
     <ClInclude Include="include\backend\LinkedList.h" />
     <ClInclude Include="include\backend\Node.h" />
+    <ClInclude Include="lib\csv.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\backend\LinkedList.tpp" />

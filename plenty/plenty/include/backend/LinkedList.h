@@ -9,6 +9,7 @@ class LinkedList
 public:
 	LinkedList();
 	LinkedList(T node);
+	LinkedList(const LinkedList<T>& list);
 	~LinkedList();
 
 	Node<T>* getHead() const;
@@ -26,6 +27,7 @@ public:
 	void printList() const;
 	int size() const;
 
+	/*
 	template <typename TT>
 	friend std::ostream& operator<<(std::ostream& out, const LinkedList<TT>& list)
 	{
@@ -47,6 +49,7 @@ public:
 
 		return out;
 	}
+	*/
 
 private:
 	Node<T>* head;

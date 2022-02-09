@@ -68,3 +68,14 @@ void HistoryEventManager::displayAllEvents()
 {
 	events.printList();
 }
+
+void HistoryEventManager::getAll(LinkedList<HistoryEvent>& res) const
+{
+	auto head = events.getHead();
+	while (head != nullptr)
+	{
+		res.addAtBack(HistoryEvent(head->getData().event));
+
+		head = head->getNext();
+	}
+}

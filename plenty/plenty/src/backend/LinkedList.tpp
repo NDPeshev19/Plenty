@@ -15,6 +15,19 @@ LinkedList<T>::LinkedList(T node)
 }
 
 template <typename T>
+LinkedList<T>::LinkedList(const LinkedList<T>& list)
+{
+	auto head = list.getHead();
+
+	while (head != nullptr)
+	{
+		addAtBack(head->getData());
+
+		head = head->getNext();
+	}
+}
+
+template <typename T>
 LinkedList<T>::~LinkedList()
 {
 	Node<T>* node = head;

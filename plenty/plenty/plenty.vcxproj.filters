@@ -3,11 +3,13 @@
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\backend\HistoryEventManager.cpp" />
+    <ClCompile Include="include\backend\SaveManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\backend\Node.h" />
     <ClInclude Include="include\backend\LinkedList.h" />
     <ClInclude Include="include\backend\HistoryEventManager.h" />
+    <ClInclude Include="lib\csv.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\backend\LinkedList.tpp" />
