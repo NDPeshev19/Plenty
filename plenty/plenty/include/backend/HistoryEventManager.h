@@ -1,6 +1,6 @@
 #pragma once
 
-#include "LinkedList.h"
+#include "include\backend\LinkedList.h"
 
 #include <iostream>
 #include <string>
@@ -25,7 +25,7 @@ public:
 
 	friend std::ostream& operator<<(std::ostream& out, const HistoryEvent& HE)
 	{
-		std::string spacer(15, '-');
+		const std::string spacer(15, '-');
 
 		out << spacer << '\n';
 		out << "Title: " << HE.title << '\n';
@@ -49,7 +49,7 @@ private:
 	LinkedList<HistoryEvent> events;
 
 private:
-	int findId(HistoryEvent HE) const;
+	[[nodiscard]] int findId(HistoryEvent historyEvent) const;
 
 public:
 	void addEvent(HistoryEvent historyEvent);

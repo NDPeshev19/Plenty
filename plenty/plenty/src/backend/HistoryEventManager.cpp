@@ -1,4 +1,4 @@
-#include "include/backend/HistoryEventManager.h"
+#include "include\backend\HistoryEventManager.h"
 
 HistoryEvent::HistoryEvent()
 	: title("undefined"),

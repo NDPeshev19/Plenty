@@ -2,10 +2,13 @@
 #include "include\backend\HistoryEventManager.h"
 
 #include "include\backend\SaveManager.h"
+
 #include<iostream>
 #include<string>
 #include<conio.h>
+
 using namespace std;
+
 struct PROFILE
 {
 	string registerUsername, loginUsername;
@@ -63,6 +66,7 @@ void mainMenu()
 		break;
 	}
 }
+
 string hiddenPassword()
 {
 

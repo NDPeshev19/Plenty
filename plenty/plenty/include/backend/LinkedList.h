@@ -1,6 +1,7 @@
 #pragma once
 
-#include "Node.h"
+#include "include\backend\Node.h"
+
 #include <iostream>
 
 template <typename T>
@@ -55,4 +56,4 @@ private:
 	Node<T>* head;
 };
 
-#include "src/backend/LinkedList.tpp"
+#include "src\backend\LinkedList.tpp"
