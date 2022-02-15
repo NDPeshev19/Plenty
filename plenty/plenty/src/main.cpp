@@ -10,36 +10,49 @@ struct PROFILE
 {
 	string registerUsername, loginUsername;
 };
+void mainMenu();
 void inputEvent(HistoryEventManager& HEM)
 {
+	system("CLS");
 	string title, description, date;
 	cout << "Enter event name: ";
 	getline(cin, title);
+	cin.get();
 	cout << "Enter event date: ";
 	getline(cin, date);
+	cin.get();
 	cout << "Enter event description: ";
 	getline(cin, description);
-
+	cin.get();
 	HEM.addEvent(HistoryEvent(title, description, date));
+	cin.get();
+	system("pause");
+	mainMenu();
 }
 
 void deleteEvent(HistoryEventManager& HEM)
 {
+	system("CLS");
 	string title, description, date;
 	cout << "Enter event name: ";
 	getline(cin, title);
+	cin.get();
 	cout << "Enter event date: ";
 	getline(cin, date);
+	cin.get();
 	cout << "Enter event description: ";
 	getline(cin, description);
-
+	cin.get();
 	HEM.deleteEvent(HistoryEvent(title, description, date));
+	cin.get();
+	system("pause");
+	mainMenu();
 }
 
 void showAllEvents(HistoryEventManager& HEM)
 {
 	LinkedList<HistoryEvent> events = HEM.getAll();
-	Node head = events.getHead();
+	Node<HistoryEvent>* head = events.getHead();
 	while (head != NULL)
 	{
 		HistoryEvent data = head->getData();
@@ -52,6 +65,7 @@ void showAllEvents(HistoryEventManager& HEM)
 
 void mainMenu()
 {
+	HistoryEventManager HEM;
 	string eventName, eventDescription, eventDate;
 	int choice;
 	system("CLS");
@@ -67,17 +81,16 @@ void mainMenu()
 	switch (choice) {
 	case 1:
 
-		inputEvent();
+		inputEvent(HEM);
 
 		break;
 	case 2:
 
-		deleteEvent();
+		deleteEvent(HEM);
 
 		break;
 	case 3:
-	
-		showAllEvents();
+		showAllEvents(HEM);
 
 		break;
 	case 4:
@@ -127,16 +140,7 @@ int main()
 	HistoryEvent HE;
 	HEM.addEvent(HE);
 
-	/*LinkedList<HistoryEvent> events = HEM.getAll();
-	Node head = events.getHead();
-	while (head != NULL)
-	{
-		HistoryEvent data = head->getData();
-		cout << "Event title: " << data.title << endl;
-		cout << "Event date: " << data.date << endl;
-		cout << "Event description: " << data.description << endl;
-		head = head->getNext();
-	}*/
+
 
 	PROFILE firstUserRegistration;
 	PROFILE firstUserLogin;
