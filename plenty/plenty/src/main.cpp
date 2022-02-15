@@ -2,17 +2,53 @@
 #include "include\backend\HistoryEventManager.h"
 
 #include "include\backend\SaveManager.h"
-
 #include<iostream>
 #include<string>
 #include<conio.h>
-
 using namespace std;
-
 struct PROFILE
 {
 	string registerUsername, loginUsername;
 };
+void inputEvent(HistoryEventManager& HEM)
+{
+	string title, description, date;
+	cout << "Enter event name: ";
+	getline(cin, title);
+	cout << "Enter event date: ";
+	getline(cin, date);
+	cout << "Enter event description: ";
+	getline(cin, description);
+
+	HEM.addEvent(HistoryEvent(title, description, date));
+}
+
+void deleteEvent(HistoryEventManager& HEM)
+{
+	string title, description, date;
+	cout << "Enter event name: ";
+	getline(cin, title);
+	cout << "Enter event date: ";
+	getline(cin, date);
+	cout << "Enter event description: ";
+	getline(cin, description);
+
+	HEM.deleteEvent(HistoryEvent(title, description, date));
+}
+
+void showAllEvents(HistoryEventManager& HEM)
+{
+	LinkedList<HistoryEvent> events = HEM.getAll();
+	Node head = events.getHead();
+	while (head != NULL)
+	{
+		HistoryEvent data = head->getData();
+		cout << "Event title: " << data.title << endl;
+		cout << "Event date: " << data.date << endl;
+		cout << "Event description: " << data.description << endl;
+		head = head->getNext();
+	}
+}
 
 void mainMenu()
 {
@@ -30,32 +66,19 @@ void mainMenu()
 
 	switch (choice) {
 	case 1:
-		//function for add event
-		system("CLS");
-		cout << "| Enter the name of event: ";
-		cin >> eventName;
 
-
-		cout << "| Enter the date of event: ";
-		cin >> eventDate;
-
-
-		cout << "| Enter the description of event: ";
-		cin.ignore(INT_MAX, '\n');
-		getline(cin, eventDescription);
-
+		inputEvent();
 
 		break;
 	case 2:
-		//function for remove event
-		system("CLS");
-		cout << "| Enter the name of event to be removed: ";
-		cin >> eventName;
-		cout << endl;
+
+		deleteEvent();
+
 		break;
 	case 3:
-		system("CLS");
-		//function for all events
+	
+		showAllEvents();
+
 		break;
 	case 4:
 		exit(0);
@@ -66,7 +89,6 @@ void mainMenu()
 		break;
 	}
 }
-
 string hiddenPassword()
 {
 
@@ -100,6 +122,22 @@ string hiddenPassword()
 
 int main()
 {
+	HistoryEventManager HEM;
+
+	HistoryEvent HE;
+	HEM.addEvent(HE);
+
+	/*LinkedList<HistoryEvent> events = HEM.getAll();
+	Node head = events.getHead();
+	while (head != NULL)
+	{
+		HistoryEvent data = head->getData();
+		cout << "Event title: " << data.title << endl;
+		cout << "Event date: " << data.date << endl;
+		cout << "Event description: " << data.description << endl;
+		head = head->getNext();
+	}*/
+
 	PROFILE firstUserRegistration;
 	PROFILE firstUserLogin;
 
