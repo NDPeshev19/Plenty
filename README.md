@@ -4,7 +4,7 @@
 A school project for "Scalefocus" - Create an application for registration
 and management of historical events using linked lists in C++.
 
-## Contributors
+## CONTRIBUTORS
 
 - Georgi Milev <GNMilev19@codingburgas.bg> (Scrum Trainer)
 
@@ -18,6 +18,11 @@ and management of historical events using linked lists in C++.
 **Visual Studio** - **Creating the program**
 **Microsoft Teams** - **Communication**
 **Github** - **Uploading and updating the program**
+
+## DEMO OF OUR PROJECT
+<img src="images/code.png">
+<img src="images/code2.png">
+
 
 ## INSTALLING ⬇️
 You can clone our project using this link:
